@@ -6,55 +6,7 @@ An automotive safety and monitoring system using LPC2129, CAN Bus, and MMA7660 a
 
 AutoGuard CAN is an embedded automotive safety system developed using the LPC2129 ARM7 microcontroller. The system utilizes CAN (Controller Area Network) communication for reliable data exchange between multiple vehicle nodes and employs the MMA7660 3-axis accelerometer for accident detection.
 
-The system continuously monitors vehicle motion, fuel level, and indicator status. During emergency conditions, it detects abnormal acceleration values, transmits crash alerts through the CAN network, activates hazard indicators, and provides airbag deployment indication.
-
-#Project flow
-                         START
-                           │
-                           ▼
-                 Initialize LPC2129
-                           │
-        ┌──────────────────┼──────────────────┐
-        ▼                  ▼                  ▼
-   LCD Initialization  CAN Initialization  I²C Initialization
-                           │
-                           ▼
-               MMA7660 Accelerometer Initialization
-                           │
-                           ▼
-              EINT0 / EINT2 Interrupt Initialization
-                           │
-                           ▼
-                        Main Loop
-                           │
-                           ▼
-  ├─────────────►Read X, Y, Z Data from MMA7660 Sensor
-  |                         │
-  |                         ▼
-  |                 Crash Detected?
-  |                  ┌─────┴─────┐
-  |                  │           │
-  |                 NO          YES
-  |                  │           │
-  |                  ▼           ▼
-  |        Check Indicator   Display
-  |           Requests     "AIRBAG OPENED"
-  |                 │           │
-  |                  ▼           ▼
-  |         Monitor Fuel     Send CAN
-  |             Status      Danger Message
-  |                  │           │
-  |                  ▼           ▼
-  |        Receive Fuel     Hazard Lights ON
-  |          Data via CAN   (Blink Continuously)
-  |                  │           │
-  |                  ▼           ▼
-  |        Update LCD with   Airbag Alert /
-  |       Fuel & Indicator   Emergency Mode
-  |              Data             
-  |                  │             
-  |__________________|
-                           
+The system continuously monitors vehicle motion, fuel level, and indicator status. During emergency conditions, it detects abnormal acceleration values, transmits crash alerts through the CAN network, activates hazard indicators, and provides airbag deployment indication.                           
                       
 ## Features
 
