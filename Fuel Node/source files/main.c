@@ -3,7 +3,6 @@
 #include "can_structure.h"
 #include"adc.h"
 #include "delay.h"
-#include"lcd.h"
 
 int min=3;
 int max=33;
@@ -14,8 +13,6 @@ int main()
     init_adc();
     // Initialize CAN controller
     Init_CAN1();
-    // Initialize LCD display
-	Init_LCD();
     // Configure CAN frame parameters
     // Fuel node CAN ID
     fuel.can_id=0x3;
@@ -33,15 +30,8 @@ int main()
 	   fuel.data1=(((fuel_per-min)*100)/(max-min)) ;
        // Transmit fuel percentage through CAN Bus
        tx_fuel_node(fuel);
-       // Display fuel percentage on LCD
-       cmd_lcd(0x8C);
-       // Clear previous value
-       display_string("    ");
-       display_integer(fuel_per);
-       display_char('%');
        // Update every 1 second
-	   delay_ms(500);
-        //rx_fuel_node (&fuel);       
+	   delay_ms(500);  
    }       
     
 }
