@@ -16,7 +16,7 @@ typedef struct
         //2 --->01,10,11
         //3 --->001,010,011,100,101,110,111
         //4 --->0001,0010,0011,0100,0101,0110,0111,1000
-        unsigned dlc:4;
+        unsigned  int dlc:4;
         //rtr bit
         /*
         Remote Transmission Request
@@ -24,7 +24,7 @@ typedef struct
             0:Data frame or
             1:Remote frame
         */
-        unsigned rtr:1;
+        unsigned int rtr:1;
     }node_bit_field;
 }main_node;
 #endif
