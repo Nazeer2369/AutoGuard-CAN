@@ -1,20 +1,12 @@
 #include<lpc21xx.h>
-//#include "node_structures.h"
 #include"can_defines.h"
-
 #include "delay.h"
-
 #define BTR 125000
 #define NODE_2 2
 #define RXERR 16
 #define TXERR 24
-
-
 void Init_CAN1(void) ;
 void rx_indicator(main_node *RXF);
-
-
-
 void Init_CAN1(void)   
 {   
     //cfg p0.25 pin as CAN1_RX pin(RD1),TD1 is exclusive    
