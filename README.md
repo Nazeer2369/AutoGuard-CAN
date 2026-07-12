@@ -1,4 +1,4 @@
-# AutoGuard-CAN
+# AutoGuard-CAN Intelligent automotive safety and monitering system
 
 An automotive safety and monitoring system using LPC2129, CAN Bus, and MMA7660 accelerometer for real-time accident detection, fuel monitoring, and vehicle indicator control.
 
